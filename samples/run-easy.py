@@ -35,7 +35,17 @@ def hellojson():
 
 @app.route('/helloxml')
 def helloxml():
-    return 'TODO'
+    rXml="""<?xml version="1.0" encoding="UTF-8"?>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>"""
+    from flask import Response
+    r = Response(response=rXml, status=200, mimetype="application/xml")
+    r.headers["Content-Type"] = "text/xml; charset=utf-8"
+    return r
 
 print("http://127.0.0.1:5000/hello")
 print("http://127.0.0.1:5000/hellojson")
