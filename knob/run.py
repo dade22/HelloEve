@@ -1,10 +1,28 @@
 # -*- coding: utf-8 -*-
 """ run """
-import auth
 from eve import Eve
-from eve.auth import BasicAuth
+#from kauth import MyBasicAuth
 
-app = Eve(auth=MyBasicAuth)
+if __name__ != '__main__':
+    exit()
 
-if __name__ == '__main__':
-    app.run()
+app = Eve() #auth=MyBasicAuth)
+
+@app.route('/zipcodes')
+def zipcodes():
+    """ zipcodes """
+    return 'hello zipcodes!'
+
+@app.route('/resources')
+def resources():
+    """ resources """
+    return 'hello resources!'
+
+@app.route('/other')
+def other():
+    """ other """
+    return 'hello other!'
+
+print('start')
+app.run()
+print('end')
